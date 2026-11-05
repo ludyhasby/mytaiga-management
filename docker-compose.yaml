@@ -1,0 +1,25 @@
+services:
+  streamlit:
+    image: ludyhasby/mytaiga-management
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mytaiga-management
+    restart: always
+    ports:
+      - "8501:8501"
+    env_file:
+      - .env.production
+    volumes:
+      - ./file:/app/file
+      - ./.env.production:/app/.env
+    networks:
+      - app-network
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+networks:
+  app-network:
+    driver: bridge

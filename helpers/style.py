@@ -7,21 +7,21 @@ def pageInit():
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
         :root {
-            --primary: #b81120;
-            --primary-dark: #99101c;
-            --surface: #f7f9fd;
-            --surface-low: #f2f4f8;
-            --surface-high: #e6e8ec;
-            --ink: #191c1f;
-            --muted: #5b626d;
-            --teal: #006483;
-            --border: #e6e8ec;
+            --primary: #30c8a7;
+            --primary-dark: #25a98d;
+            --surface: #FFFFFF;
+            --surface-low: #F0F2F6;
+            --surface-high: #e1e4eb;
+            --ink: #31333F;
+            --muted: #626572;
+            --teal: #208f7b;
+            --border: #e1e4eb;
         }
         html, body, [class*="css"] {
             font-family: 'Inter', sans-serif;
         }
         .stApp { background: var(--surface); color: var(--ink); }
-        [data-testid="stHeader"] { background: rgba(247,249,253,.92); }
+        [data-testid="stHeader"] { background: rgba(255,255,255,.92); }
         .block-container {
             max-width: 1500px;
             padding-top: 1.5rem;
@@ -47,7 +47,7 @@ def pageInit():
         }
         .eyebrow {
             display:inline-flex; gap:8px; align-items:center;
-            background:#eceef2; color:#5b626d; border-radius:20px;
+            background:#e7f8f4; color:#39796d; border-radius:20px;
             padding:5px 11px; font:500 .72rem 'JetBrains Mono',monospace;
             margin-bottom:12px;
         }
@@ -68,25 +68,25 @@ def pageInit():
             background:var(--primary); font-size:.78rem; font-weight:700;
         }
         .tag {
-            margin-left:auto; background:#e8f5f8; color:var(--teal);
+            margin-left:auto; background:#e7f8f4; color:var(--teal);
             border-radius:6px; padding:4px 8px; font:500 .68rem 'JetBrains Mono',monospace;
         }
         .inner-card {
             background:var(--surface-low); border-radius:10px; padding:1rem;
-            height:100%; border:1px solid #eef0f3;
+            height:100%; border:1px solid #e6e8ee;
         }
         .inner-title { font-weight:650; color:var(--ink); margin-bottom:5px; }
         .helper { color:var(--muted); font-size:.82rem; line-height:1.5; }
         .metric {
             background:var(--surface-low); padding:14px; border-radius:10px;
-            border:1px solid #eef0f3; min-height:100px;
+            border:1px solid #e6e8ee; min-height:100px;
         }
         .metric-label { font-size:.68rem; color:var(--muted); letter-spacing:.08em; font-weight:700; }
         .metric-value { font-size:1.65rem; font-weight:800; color:var(--ink); margin-top:7px; }
         .metric-note { color:var(--teal); font-size:.75rem; margin-top:3px; }
         .info-callout {
-            background:#eaf5f8; border:1px solid #d8edf3; border-radius:9px;
-            padding:12px 14px; color:#245666; font-size:.82rem; line-height:1.6;
+            background:#e7f8f4; border:1px solid #c8eee4; border-radius:9px;
+            padding:12px 14px; color:#28695c; font-size:.82rem; line-height:1.6;
         }
         .status-box {
             background:var(--surface-low); border-radius:10px; padding:13px 15px;
@@ -97,16 +97,16 @@ def pageInit():
             border:1px solid var(--border);
         }
         div.stButton > button[kind="primary"] {
-            background:var(--primary); border-color:var(--primary); color:white;
+            background:var(--primary); border-color:var(--primary); color:#31333F;
         }
         div.stButton > button[kind="primary"]:hover {
             background:var(--primary-dark); border-color:var(--primary-dark); color:white;
         }
         div.stDownloadButton > button {
-            background:#e6e8ec; color:var(--ink); width:100%;
+            background:#e1e4eb; color:var(--ink); width:100%;
         }
         [data-testid="stFileUploader"] {
-            background:#fff; border-radius:9px; border:1px dashed #c9cdd5;
+            background:#fff; border-radius:9px; border:1px dashed #c5c9d2;
             padding:8px;
         }
         [data-testid="stDataFrame"] { border:1px solid var(--border); border-radius:9px; overflow:hidden; }
@@ -116,6 +116,78 @@ def pageInit():
             .block-container { padding-left:1rem; padding-right:1rem; }
             .section-card { padding:1rem; }
             .metric-value { font-size:1.25rem; }
+        }
+
+        /* Secret Key Dialog */
+        [data-testid="stDialog"] [role="dialog"] {
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, .18);
+            background: #fff;
+        }
+
+        [data-testid="stDialog"] [data-testid="stDialogHeader"] {
+            background: var(--surface-low);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 1.25rem;
+        }
+
+        [data-testid="stDialog"] [data-testid="stDialogHeader"] p {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            color: var(--ink);
+        }
+
+        [data-testid="stDialog"] [data-testid="stDialogContent"] {
+            padding: 1.25rem;
+        }
+
+        .secret-dialog-description {
+            color: var(--muted);
+            font-size: .85rem;
+            line-height: 1.6;
+            margin-bottom: 1.25rem;
+        }
+
+        .secret-key-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8px;
+            font-size: .82rem;
+            font-weight: 650;
+            color: var(--ink);
+            margin-bottom: .5rem;
+        }
+
+        .secret-key-label span {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: .65rem;
+            color: var(--muted);
+        }
+
+        [data-testid="stDialog"] input {
+            font-family: 'JetBrains Mono', monospace;
+            border-radius: 8px;
+        }
+
+        [data-testid="stDialog"] div.stButton > button[kind="primary"],
+        [data-testid="stDialog"] div.stFormSubmitButton > button {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #31333F;
+            border-radius: 8px;
+            min-height: 2.75rem;
+            font-weight: 650;
+        }
+
+        .secret-dialog-footer {
+            border-top: 1px solid var(--border);
+            margin-top: 1rem;
+            padding-top: .75rem;
+            color: var(--muted);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: .7rem;
         }
         </style>
         """,

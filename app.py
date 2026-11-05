@@ -1,5 +1,7 @@
 import streamlit as st
+from helpers.env import LoadEnv
 from helpers.style import pageInit
+from usecase.login import Login
 from usecase.dashboard import dashboard
 from usecase.appendactivities import appendActivities
 
@@ -13,7 +15,9 @@ st.set_page_config(
 )
 
 if __name__ == "__main__":
+    env = LoadEnv()
     pageInit()
+    Login(env['secretKey'], env['maxAttempts'], env['lockoutSeconds'])
     st.markdown(
         """
         <div class="topbar">

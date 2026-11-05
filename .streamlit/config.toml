@@ -1,0 +1,13 @@
+[server]
+maxUploadSize = 300
+maxMessageSize = 300
+enableCORS = false
+enableXsrfProtection = false
+
+[theme]
+base = "light"
+primaryColor = "#30c8a7"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F0F2F6"
+textColor = "#31333F"
+font = "sans serif"
